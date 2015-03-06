@@ -35,15 +35,15 @@ public class KdTree {
       right = null;
     }
 
-    Point2D data() {
+    public Point2D data() {
       return data;
     }
 
-    KdTreeNode left() {
+    public KdTreeNode left() {
       return left;
     }
 
-    KdTreeNode right() {
+    public KdTreeNode right() {
       return right;
     }
   }
