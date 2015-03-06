@@ -184,8 +184,8 @@ public class KdTree {
 	//Visual representation of the kd-tree is drawn with vertical splits in red, horizontal splits in blue, and points in black
 	public void draw() {
 		if (!(isEmpty())) {
-		  Point2D subtreeMin = new Point2D(SCALE_MIN, SCALE_MIN);
-		  Point2D subtreeMax = new Point2D(SCALE_MAX, SCALE_MAX);
+		  Point2D subtreeMin = new Point2D(KdTree.SCALE_MIN, KdTree.SCALE_MIN);
+		  Point2D subtreeMax = new Point2D(KdTree.SCALE_MAX, KdTree.SCALE_MAX);
 		  Point2D drawA = new Point2D(root.data().x(), subtreeMin.y());
 		  Point2D drawB = new Point2D(root.data().x(), subtreeMax.y());
 		  StdDraw.setPenRadius();
@@ -269,13 +269,13 @@ public class KdTree {
 			inRange.enqueue(root.data());
 		  }
 		  //Creates the left half of the rectangle encompassing all points split by the root's x coordinate
-		  RectHV divide = new RectHV(SCALE_MIN, SCALE_MIN, root.data().x(), SCALE_MAX);
+		  RectHV divide = new RectHV(KdTree.SCALE_MIN, KdTree.SCALE_MIN, root.data().x(), KdTree.SCALE_MAX);
 		  //If the given rectangle intersects the split rectangle, the split rectangle may contain points in the given one and should be searched
 		  if (rect.intersects(divide)) {
 			rangeR(rect, true, root.left(), divide, inRange);
 		  }
 		  //Creates the right half of the rectangle encompassing all points split by the root's x coordinate
-		  divide = new RectHV(root.data().x(), SCALE_MIN, SCALE_MAX, SCALE_MAX);
+		  divide = new RectHV(root.data().x(), KdTree.SCALE_MIN, KdTree.SCALE_MAX, KdTree.SCALE_MAX);
 		  //If the given rectangle intersects the split rectangle, the split rectangle may contain points in the given one and should be searched
 		  if (rect.intersects(divide)) {
 			rangeR(rect, true, root.right(), divide, inRange);
